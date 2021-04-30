@@ -1,0 +1,2 @@
+recursive-include classroom_plugin/patches *
+recursive-include classroom_plugin/templates *
