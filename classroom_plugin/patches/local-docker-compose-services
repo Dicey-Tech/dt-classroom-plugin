@@ -1,0 +1,8 @@
+classroom:
+  image: {{ CLASSROOM_DOCKER_IMAGE }}
+  environment:
+    DJANGO_SETTINGS_MODULE: classroom.settings.local
+  volumes:
+    - ../plugins/classroom/apps/settings/tutor.py:/openedx/dt-classroom/classroom/settings/tutor.py:ro
+  restart: unless-stopped
+  depends_on: {{ [("mysql", RUN_MYSQL)]|list_if }}

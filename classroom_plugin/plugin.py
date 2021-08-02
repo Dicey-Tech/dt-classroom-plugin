@@ -8,9 +8,25 @@ templates = pkg_resources.resource_filename(
     "classroom_plugin", "templates"
 )
 
-config = {}
+config = {
+    "add": {
+        "MYSQL_PASSWORD": "{{ 8|random_string }}",
+        "SECRET_KEY": "{{ 24|random_string }}",
+        "OAUTH2_SECRET": "{{ 24|random_string }}",
+    },
+    "defaults": {
+        "VERSION": __version__,
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}diceytech/dt-classroom:{{ CLASSROOM_VERSION }}",
+        "HOST": "classroom.{{ LMS_HOST }}",
+        "MYSQL_DATABASE": "classroom",
+        "MYSQL_USERNAME": "classroom",
+    },
+}
 
-hooks = {}
+hooks = {
+    "build-image": {"classroom": "{{ CLASSROOM_DOCKER_IMAGE }}"},
+    "init": ["classroom"],
+}
 
 
 def patches():

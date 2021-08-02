@@ -42,7 +42,7 @@ setup(
     install_requires=["tutor-openedx"],
     entry_points={
         "tutor.plugin.v0": [
-            "dt-classroom-plugin = classroom_plugin.plugin"
+            "classroom = classroom_plugin.plugin"
         ]
     },
     classifiers=[
