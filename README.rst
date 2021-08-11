@@ -13,7 +13,7 @@ Usage
 
 ::
 
-    tutor plugins enable dt-classroom-plugin
+    tutor plugins enable classroom
 
 
 License

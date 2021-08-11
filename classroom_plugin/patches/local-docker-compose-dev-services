@@ -1,4 +1,10 @@
 classroom:
+  environment:
+      DJANGO_SETTINGS_MODULE: classroom.settings.tutor.development
   command: python3 manage.py runserver 0.0.0.0:8180
   ports:
     - "8180:8180"
+  networks:
+    default:
+      aliases:
+        - "{{ CLASSROOM_HOST }}"
