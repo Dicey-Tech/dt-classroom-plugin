@@ -12,7 +12,8 @@ config = {
     "add": {
         "MYSQL_PASSWORD": "{{ 8|random_string }}",
         "SECRET_KEY": "{{ 24|random_string }}",
-        "OAUTH2_SECRET": "{{ 24|random_string }}",
+        "OAUTH2_SECRET": "{{ 8|random_string }}",
+        "OAUTH2_SECRET_SSO": "{{ 8|random_string }}",
     },
     "defaults": {
         "VERSION": __version__,
@@ -20,12 +21,17 @@ config = {
         "HOST": "classroom.{{ LMS_HOST }}",
         "MYSQL_DATABASE": "classroom",
         "MYSQL_USERNAME": "classroom",
+        "OAUTH2_KEY": "classroom",
+        "OAUTH2_KEY_DEV": "classroom-dev",
+        "OAUTH2_KEY_SSO": "classroom-sso",
+        "OAUTH2_KEY_SSO_DEV": "classroom-sso-dev",
+        "CACHE_REDIS_DB": "{{ OPENEDX_CACHE_REDIS_DB }}",
     },
 }
 
 hooks = {
     "build-image": {"classroom": "{{ CLASSROOM_DOCKER_IMAGE }}"},
-    "init": ["classroom"],
+    "init": ["mysql", "classroom", "lms"],
 }
 
 
