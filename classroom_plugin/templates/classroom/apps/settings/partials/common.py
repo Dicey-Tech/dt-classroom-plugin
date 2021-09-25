@@ -2,7 +2,7 @@ SECRET_KEY = "{{ CLASSROOM_SECRET_KEY }}"
 ALLOWED_HOSTS = [
     "classroom",
     "{{ CLASSROOM_HOST }}",
-    "local.overhang.io",
+    "{{ LMS_HOST }}",
 ]
 
 PLATFORM_NAME = "{{ PLATFORM_NAME }}"
@@ -34,7 +34,7 @@ EMAIL_HOST = "{{ SMTP_HOST }}"
 EMAIL_PORT = "{{ SMTP_PORT }}"
 EMAIL_HOST_USER = "{{ SMTP_USERNAME }}"
 EMAIL_HOST_PASSWORD = "{{ SMTP_PASSWORD }}"
-EMAIL_USE_TLS = {{SMTP_USE_TLS}}
+EMAIL_USE_TLS = {{ SMTP_USE_TLS }}
 
 LOGGING["handlers"]["local"] = {
     "class": "logging.handlers.WatchedFileHandler",
@@ -76,3 +76,6 @@ JWT_AUTH["JWT_ISSUERS"] = [
 EDX_DRF_EXTENSIONS = {
     'OAUTH2_USER_INFO_URL': '{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ LMS_HOST }}/oauth2/user_info',
 }
+
+LMS_BASE_URL = "http://lms:8000/"
+DISCOVERY_SERVICE_API_URL = "http://discovery:8000/api/v1/" # "http://discovery.local.overhang.io:8381/api/v1/" #

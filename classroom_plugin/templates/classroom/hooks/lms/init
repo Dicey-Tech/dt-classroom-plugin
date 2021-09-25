@@ -7,6 +7,16 @@
 
 # Development client
 ./manage.py lms create_dot_application \
+    --grant-type client-credentials \
+    --redirect-uris "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ CLASSROOM_HOST }}:8180/complete/edx-oauth2/" \
+    --client-id {{ CLASSROOM_OAUTH2_KEY_DEV }} \
+    --client-secret {{ CLASSROOM_OAUTH2_SECRET }} \
+    --scopes user_id \
+    --skip-authorization \
+    --update \
+    classroom-dev \
+    classroom
+./manage.py lms create_dot_application \
     --grant-type authorization-code \
     --redirect-uris "http://{{ CLASSROOM_HOST }}:8180/complete/edx-oauth2/" \
     --client-id {{ CLASSROOM_OAUTH2_KEY_SSO_DEV }} \

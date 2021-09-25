@@ -13,6 +13,10 @@ RUN git clone https://github.com/Dicey-Tech/dt-classroom --branch bbrsofiane/ini
 # --branch {{ OPENEDX_COMMON_VERSION }}
 WORKDIR /openedx/dt-classroom
 
+# Setup empty yml config file, which is required by production settings
+RUN echo "{}" > /openedx/config.yml
+ENV CLASSROOM_CFG /openedx/config.yml
+
 # python requirements
 RUN pip3 install -r requirements/base.txt
 

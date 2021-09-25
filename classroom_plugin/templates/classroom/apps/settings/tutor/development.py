@@ -13,5 +13,28 @@ SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = SOCIAL_AUTH_EDX_OAUTH2_ISSUER
 SOCIAL_AUTH_EDX_OAUTH2_PUBLIC_URL_ROOT = SOCIAL_AUTH_EDX_OAUTH2_ISSUER
 SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL = SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/logout"
 
+DISCOVERY_SERVICE_API_URL = "http://discovery.local.overhang.io:8381/api/v1/"
+
 # TODO Remove
 AUTO_AUTH = True
+
+SWAGGER_SETTINGS = {
+    'DOC_EXPANSION': 'list',
+    "USE_SESSION_AUTH": True,
+    "SECURITY_DEFINITIONS": {
+        "Classroom API - Swagger": {
+            "type": "oauth2",
+            "authorizationUrl": SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/oauth2/authorize",
+            "tokenUrl": SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/oauth2/access_token",
+            "flow": "authorizatonCode",
+            "scopes": "user_id",
+        }
+    },
+    "OAUTH2_REDIRECT_URL": "http://classroom.local.overhang.io/static/drf-yasg/swagger-ui-dist/oauth2-redirect.html",
+    "OAUTH2_CONFIG": {
+        "clientId": "swagger_classroom",
+        "clientSecret": "swagger",
+        "appName": "swagger"
+
+    },
+}
