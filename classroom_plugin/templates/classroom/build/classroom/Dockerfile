@@ -17,24 +17,27 @@ WORKDIR /openedx/dt-classroom
 RUN echo "{}" > /openedx/config.yml
 ENV CLASSROOM_CFG /openedx/config.yml
 
+RUN pip3 install -r requirements/production.txt
+
 # python requirements
-RUN pip3 install -r requirements/base.txt
+# RUN pip3 install -r requirements/base.txt
 
 # Install django-redis for using redis as a django cache
-RUN pip install django-redis==4.12.1
+# RUN pip install django-redis==4.12.1
 
 # Install uwsgi
 RUN pip install uwsgi==2.0.19.1
 
+RUN python manage.py collectstatic --noinput
+
 # TODO change to uswgi
 EXPOSE 8000
 CMD uwsgi \
-    #--static-map /static=/openedx/discovery/course_discovery/assets \
-    #--static-map /media=/openedx/discovery/course_discovery/media \
+    --static-map /static=/openedx/dt-classroom/classrooms/assets \
     --http 0.0.0.0:8000 \
     --thunder-lock \
     --single-interpreter \
     --enable-threads \
     --processes=2 \
-    --wsgi-file classroom/wsgi.py
-#CMD gunicorn --workers=2 --name classroom --bind=0.0.0.0:8000 --max-requests=1000 classroom.wsgi:application
+    --wsgi-file classrooms/wsgi.py
+# CMD gunicorn --workers=2 --name classroom --bind=0.0.0.0:8000 --max-requests=1000 classrooms.wsgi:application

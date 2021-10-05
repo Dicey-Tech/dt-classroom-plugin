@@ -15,6 +15,8 @@ SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL = SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/logout"
 
 DISCOVERY_SERVICE_API_URL = "http://discovery.local.overhang.io:8381/api/v1/"
 
+#CORS_ORIGIN_WHITELIST.append("http://{{ MFE_HOST }}: CLASSROOM_MFE_APP['port'] ")
+
 # TODO Remove
 AUTO_AUTH = True
 

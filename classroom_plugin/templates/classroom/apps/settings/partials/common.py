@@ -3,6 +3,7 @@ ALLOWED_HOSTS = [
     "classroom",
     "{{ CLASSROOM_HOST }}",
     "{{ LMS_HOST }}",
+    "{{ MFE_HOST }}"
 ]
 
 PLATFORM_NAME = "{{ PLATFORM_NAME }}"
@@ -78,4 +79,4 @@ EDX_DRF_EXTENSIONS = {
 }
 
 LMS_BASE_URL = "http://lms:8000/"
-DISCOVERY_SERVICE_API_URL = "http://discovery:8000/api/v1/" # "http://discovery.local.overhang.io:8381/api/v1/" #
+DISCOVERY_SERVICE_API_URL = "http://{{ DISCOVERY_HOST }}/api/v1/"
