@@ -4,9 +4,7 @@ import pkg_resources
 
 from .__about__ import __version__
 
-templates = pkg_resources.resource_filename(
-    "classroom_plugin", "templates"
-)
+templates = pkg_resources.resource_filename("classroom_plugin", "templates")
 
 config = {
     "add": {
@@ -17,7 +15,7 @@ config = {
     },
     "defaults": {
         "VERSION": __version__,
-        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}diceytech/dt-classroom:{{ CLASSROOM_VERSION }}",
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}diceytech/dt-classroom:{{ DT_CLASSROOM_VERSION }}",
         "HOST": "classroom.{{ LMS_HOST }}",
         "MYSQL_DATABASE": "classroom",
         "MYSQL_USERNAME": "classroom",
@@ -26,20 +24,24 @@ config = {
         "OAUTH2_KEY_SSO": "classroom-sso",
         "OAUTH2_KEY_SSO_DEV": "classroom-sso-dev",
         "CACHE_REDIS_DB": "{{ OPENEDX_CACHE_REDIS_DB }}",
+        # "MFE_APP": {
+        #     "name": "school",
+        #     "repository": "https://github.com/Dicey-Tech/frontend-app-classroom",
+        #     "port": 8080,
+        #     "version": "develop-b",
+        # },
     },
 }
 
 hooks = {
-    "build-image": {"classroom": "{{ CLASSROOM_DOCKER_IMAGE }}"},
-    "init": ["mysql", "classroom", "lms"],
+    "build-image": {"dt_classroom": "{{ DT_CLASSROOM_DOCKER_IMAGE }}"},
+    "init": ["mysql", "dt_classroom", "lms"],
 }
 
 
 def patches():
     all_patches = {}
-    patches_dir = pkg_resources.resource_filename(
-        "classroom_plugin", "patches"
-    )
+    patches_dir = pkg_resources.resource_filename("classroom_plugin", "patches")
     for path in glob(os.path.join(patches_dir, "*")):
         with open(path) as patch_file:
             name = os.path.basename(path)

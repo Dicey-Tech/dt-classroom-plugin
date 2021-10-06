@@ -39,12 +39,8 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.5",
-    install_requires=["tutor-openedx"],
-    entry_points={
-        "tutor.plugin.v0": [
-            "classroom = classroom_plugin.plugin"
-        ]
-    },
+    install_requires=["tutor"],
+    entry_points={"tutor.plugin.v0": ["dt_classroom = classroom_plugin.plugin"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

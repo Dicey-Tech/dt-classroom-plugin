@@ -1,1 +1,1 @@
-- {{ CLASSROOM_HOST }}
+- {{ DT_CLASSROOM_HOST }}
