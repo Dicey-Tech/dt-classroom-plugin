@@ -40,3 +40,5 @@ SWAGGER_SETTINGS = {
 
     },
 }
+
+{{ patch("dt-classrooms-development-settings") }}
