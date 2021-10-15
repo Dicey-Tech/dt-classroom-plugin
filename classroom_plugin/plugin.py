@@ -24,12 +24,12 @@ config = {
         "OAUTH2_KEY_SSO": "classroom-sso",
         "OAUTH2_KEY_SSO_DEV": "classroom-sso-dev",
         "CACHE_REDIS_DB": "{{ OPENEDX_CACHE_REDIS_DB }}",
-        # "MFE_APP": {
-        #     "name": "school",
-        #     "repository": "https://github.com/Dicey-Tech/frontend-app-classroom",
-        #     "port": 8080,
-        #     "version": "develop-b",
-        # },
+        "MFE_APP": {
+            "name": "classroom",
+            "repository": "https://github.com/Dicey-Tech/frontend-app-classroom",
+            "port": 8080,
+            "version": "develop",
+        },
     },
 }
 
