@@ -28,11 +28,11 @@ SWAGGER_SETTINGS = {
             "type": "oauth2",
             "authorizationUrl": SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/oauth2/authorize",
             "tokenUrl": SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/oauth2/access_token",
-            "flow": "authorizatonCode",
+            "flow": "authorizationCode",
             "scopes": "user_id",
         }
     },
-    "OAUTH2_REDIRECT_URL": "http://classroom.local.overhang.io/static/drf-yasg/swagger-ui-dist/oauth2-redirect.html",
+    "OAUTH2_REDIRECT_URL": "http://{{ DT_CLASSROOM_HOST }}:8180/static/drf-yasg/swagger-ui-dist/oauth2-redirect.html",
     "OAUTH2_CONFIG": {
         "clientId": "swagger_classroom",
         "clientSecret": "swagger",
