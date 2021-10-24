@@ -41,5 +41,6 @@ CMD uwsgi \
     --single-interpreter \
     --enable-threads \
     --processes=2 \
+    --buffer-size=8192 \
     --wsgi-file classrooms/wsgi.py
 # CMD gunicorn --workers=2 --name classroom --bind=0.0.0.0:8000 --max-requests=1000 classrooms.wsgi:application
