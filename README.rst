@@ -1,4 +1,4 @@
-dt-classroom-plugin plugin for `Tutor <https://docs.tutor.overhang.io>`__
+Dicey Tech's Learning Hub plugin for `Tutor <https://docs.tutor.overhang.io>`__
 ===================================================================================
 
 Installation
@@ -13,8 +13,16 @@ Usage
 
 ::
 
-    tutor plugins enable classroom
+    tutor plugins enable dt_classroom
+    tutor local quickstart
 
+
+TODO
+-----
+
+::
+
+    - Add K8S deployment
 
 License
 -------
