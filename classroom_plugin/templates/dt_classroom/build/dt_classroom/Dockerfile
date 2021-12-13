@@ -9,7 +9,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 
 
 RUN mkdir /openedx
-RUN git clone https://github.com/Dicey-Tech/dt-classroom --branch bbrsofiane/initial-development --depth 1 /openedx/dt-classroom
+RUN git clone https://github.com/Dicey-Tech/dt-classroom --branch main --depth 1 /openedx/dt-classroom
 # --branch {{ OPENEDX_COMMON_VERSION }}
 WORKDIR /openedx/dt-classroom
 
