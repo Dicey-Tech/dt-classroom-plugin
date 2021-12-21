@@ -28,7 +28,7 @@ config = {
             "name": "classroom",
             "repository": "https://github.com/Dicey-Tech/frontend-app-classroom",
             "port": 8080,
-            "version": "main",
+            "version": "master",
         },
     },
 }
