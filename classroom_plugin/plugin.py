@@ -31,18 +31,18 @@ config = {
             "version": "master",
         },
         "DASHBOARD_MFE_APP": {
-            "name": "dasbhoard",
+            "name": "dashboard",
             "repository": "https://github.com/Dicey-Tech/frontend-app-teacher-dashboard",
             "port": 1999,
             "version": "develop",
             "env": {
                 "production": {
-                    "CLASSROOM_BASE_URL": "{{ DT_CLASSROOM_HOST }}",
-                    "CLASSROOM_MFE_URL": "apps.{{ LMS_HOST }}/{{ DT_CLASSROOM_MFE_APP['name'] }}",
+                    "CLASSROOM_BASE_URL": "{{ 'https' if ENABLE_HTTPS else 'http' }}://{{ DT_CLASSROOM_HOST }}",
+                    "CLASSROOM_MFE_URL": "{{ 'https' if ENABLE_HTTPS else 'http' }}://apps.{{ LMS_HOST }}/{{ DT_CLASSROOM_MFE_APP['name'] }}",
                 },
                 "development": {
-                    "CLASSROOM_BASE_URL": "{{ DT_CLASSROOM_HOST }}:8180",
-                    "CLASSROOM_MFE_URL": "apps.{{ LMS_HOST }}:{{ DT_CLASSROOM_MFE_APP['port'] }}/{{ DT_CLASSROOM_MFE_APP['name'] }}",
+                    "CLASSROOM_BASE_URL": "http://{{ DT_CLASSROOM_HOST }}:8180",
+                    "CLASSROOM_MFE_URL": "http://apps.{{ LMS_HOST }}:{{ DT_CLASSROOM_MFE_APP['port'] }}/{{ DT_CLASSROOM_MFE_APP['name'] }}",
                 },
             },
         },
