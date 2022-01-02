@@ -15,6 +15,8 @@ SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL = SOCIAL_AUTH_EDX_OAUTH2_ISSUER + "/logout"
 
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = {% if ENABLE_HTTPS %}True{% else %}False{% endif %}
 
+DISCOVERY_SERVICE_API_URL = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ DISCOVERY_HOST }}/api/v1/"
+
 CORS_ORIGIN_WHITELIST.append("{{ 'https' if ENABLE_HTTPS else 'http' }}://{{ MFE_HOST }}")
 
 CSRF_TRUSTED_ORIGINS.append("{{ MFE_HOST }}")

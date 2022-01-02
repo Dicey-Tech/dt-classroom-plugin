@@ -4,6 +4,7 @@ dt_classroom:
   command: python3 manage.py runserver 0.0.0.0:8180
   ports:
     - "8180:8180"
+    - "8181:8181" # ipython notebook
   networks:
     default:
       aliases:

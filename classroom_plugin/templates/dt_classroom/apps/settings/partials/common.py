@@ -80,4 +80,3 @@ EDX_DRF_EXTENSIONS = {
 
 LMS_BASE_URL = "http://lms:8000/"
 CMS_BASE_URL = "http://cms:8000/"
-DISCOVERY_SERVICE_API_URL = "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ DISCOVERY_HOST }}/api/v1/"
